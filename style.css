@@ -1,4 +1,22 @@
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: white;
+  color: black;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#map {
+  width: 600px;
+  height: 90%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
