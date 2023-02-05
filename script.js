@@ -12,81 +12,52 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 
 
 // Coordinates for important locations in Israel
-var jerusalem = [31.7857, 35.2271];
-var bethlehem = [31.7026, 35.2023];
-var nazareth = [32.7042, 35.2939];
-var capernaum = [32.8713, 35.5192];
-var seaOfGalilee = [32.918, 35.534];
-var mountOfTransfiguration = [28.539, 35.544];
-var gardenOfGethsemane = [31.778, 35.234];
-var jordanRiver = [31.941, 35.848];
-var templeMount = [31.778, 35.234];
-var mountOfOlives = [31.778, 35.234];
+var locations = [
+    { loc: [31.7857, 35.2271], label: "Jerusalem" },
+    { loc: [31.7043, 35.2076], label: "Bethlehem" },
+    { loc: [32.70215, 35.297633], label: "Nazareth" },
+    { loc: [32.881139, 35.575056], label: "Capernaum" },
+    { loc: [32.8189, 35.5900], label: "Sea of Galilee" },
+    { loc: [28.539, 35.544], label: "Mount of Transfiguration" },
+    { loc: [31.77941, 35.23944], label: "Garden of Gethsemane" },
+    { loc: [31.761417, 35.558333], label: "Jordan River" },
+    { loc: [31.744506, 35.245124], label: "Mount of Olives" }
+];
+var latLngValues = locations.map(({ loc }) => loc);
 
 // Create a LatLngBounds object that includes all of the above locations
-var bounds = L.latLngBounds([jerusalem, bethlehem, nazareth, capernaum]);
+var bounds = L.latLngBounds(latLngValues);
 // Add 10px padding to the bounds
 bounds = bounds.pad(0.1);
 
 // Apply the bounds to the map
-map.setMaxBounds(bounds);
+// map.setMaxBounds(bounds);
 map.fitBounds(bounds);
 
-var jerusalemMarker = L.marker(jerusalem).addTo(map);
-var tooltip = L.tooltip({ permanent: true, direction: 'right' }).setContent("Jerusalem").setLatLng(jerusalem);
-map.addLayer(tooltip);
-jerusalemMarker.bindTooltip(tooltip);
+var markers = L.markerClusterGroup({
+    showCoverageOnHover: false,
+});
 
-var bethlehemMarker = L.marker(bethlehem).addTo(map);
-var tooltip = L.tooltip({ permanent: true, direction: 'right' }).setContent("Bethlehem").setLatLng(bethlehem);
-map.addLayer(tooltip);
-bethlehemMarker.bindTooltip(tooltip);
+// Add markers to the map using the locations array and a foreach loop
+locations.forEach(function (location) {
+    var marker = L.circleMarker(location.loc, {
+        title: location.label,
+        radius: 15,
+        fillColor: "#6ecc39",
+        color: "#b5e28c",
+        weight: 5,
+        opacity: 0.6,
+        fillOpacity: 0.8
+    });
+    var tooltip = L.tooltip({ direction: 'up' }).setContent(location.label).setLatLng(location.loc);
+    marker.bindTooltip(tooltip);
+    markers.addLayer(marker);
+});
 
-var nazarethMarker = L.marker(nazareth).addTo(map);
-var tooltip = L.tooltip({ permanent: true, direction: 'right' }).setContent("Nazareth").setLatLng(nazareth);
-map.addLayer(tooltip);
-nazarethMarker.bindTooltip(tooltip);
+map.addLayer(markers);
 
-var capernaumMarker = L.marker(capernaum).addTo(map);
-var tooltip = L.tooltip({ permanent: true, direction: 'right' }).setContent("Capernaum").setLatLng(capernaum);
-map.addLayer(tooltip);
-capernaumMarker.bindTooltip(tooltip);
-
-var seaOfGalileeMarker = L.marker(seaOfGalilee).addTo(map);
-var tooltip = L.tooltip({ permanent: true, direction: 'right' }).setContent("Sea of Galilee").setLatLng(seaOfGalilee);
-map.addLayer(tooltip);
-seaOfGalileeMarker.bindTooltip(tooltip);
-
-// Mount of Transfiguration
-var mountOfTransfigurationMarker = L.marker(mountOfTransfiguration).addTo(map);
-var tooltip = L.tooltip({ permanent: true, direction: 'right' }).setContent("Mount of Transfiguration").setLatLng(mountOfTransfiguration);
-map.addLayer(tooltip);
-mountOfTransfigurationMarker.bindTooltip(tooltip);
-
-// Garden of Gethsemane
-var gardenOfGethsemaneMarker = L.marker(gardenOfGethsemane).addTo(map);
-var tooltip = L.tooltip({ permanent: true, direction: 'right' }).setContent("Garden of Gethsemane").setLatLng(gardenOfGethsemane);
-map.addLayer(tooltip);
-gardenOfGethsemaneMarker.bindTooltip(tooltip);
-
-// The Jordan River
-var jordanRiverMarker = L.marker(jordanRiver).addTo(map);
-var tooltip = L.tooltip({ permanent: true, direction: 'right' }).setContent("Jordan River").setLatLng(jordanRiver);
-map.addLayer(tooltip);
-jordanRiverMarker.bindTooltip(tooltip);
-
-// The Temple Mount in Jerusalem
-var templeMountMarker = L.marker(templeMount).addTo(map);
-var tooltip = L.tooltip({ permanent: true, direction: 'right' }).setContent("Temple Mount in Jerusalem").setLatLng(templeMount);
-map.addLayer(tooltip);
-templeMountMarker.bindTooltip(tooltip);
-
-// The Mount of Olives
-var mountOfOlivesMarker = L.marker(mountOfOlives).addTo(map);
-var tooltip = L.tooltip({ permanent: true, direction: 'right' }).setContent("Mount of Olives").setLatLng(mountOfOlives);
-map.addLayer(tooltip);
-mountOfOlivesMarker.bindTooltip(tooltip);
-
-
-
+// Add a button to reset the map view
+L.easyButton('fa-home', function () {
+    map.flyToBounds(bounds, { duration: 0.5 });
+}).addTo(map);
 

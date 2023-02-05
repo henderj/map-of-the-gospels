@@ -20,3 +20,19 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.reset-button {
+  background-color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  float: left;
+  display: block;
+  z-index: 100;
+  position: relative;
+  left: 10px;
+  top: 10px;
+}

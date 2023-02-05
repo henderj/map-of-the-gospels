@@ -1,0 +1,23 @@
+points of interest:
+    Jerusalem: The city where Jesus was crucified and resurrected.
+    Bethlehem: The city where Jesus was born.
+    Nazareth: Jesus' childhood home and the place where he began his ministry.
+    Capernaum: A city located on the northern shore of the Sea of Galilee, it was the base of Jesus' ministry in Galilee.
+    The Sea of Galilee (Sea of Tiberias, or Lake of Gennesaret): a lake in Israel where Jesus performed many miracles and where he had several famous conversations with his disciples.
+    The Mount of Transfiguration: A mountain where Jesus was transfigured before his disciples
+    The Garden of Gethsemane: The location where Jesus prayed and was arrested before his crucifixion.
+    The Jordan River: Where Jesus was baptized by John the Baptist.
+    The Temple Mount in Jerusalem : the location of the Temple of Jerusalem and an important place of worship for the Jewish people during the time of Jesus.
+    The Mount of Olives: a hill east of Jerusalem where Jesus often prayed.
+
+more places: https://en.wikipedia.org/wiki/New_Testament_places_associated_with_Jesus
+
+TODO:
+add right sidebar for area info
+add area info
+add left sidebar for list of places
+optimize for mobile
+add more places
+fix tooltip location
+add polygons for areas (e.g. Galilee, Judea, Samaria, etc.)??
+
