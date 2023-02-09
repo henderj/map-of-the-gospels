@@ -18,7 +18,7 @@ var locations = [
     { loc: [32.70215, 35.297633], label: "Nazareth" },
     { loc: [32.881139, 35.575056], label: "Capernaum" },
     { loc: [32.8189, 35.5900], label: "Sea of Galilee" },
-    { loc: [28.539, 35.544], label: "Mount of Transfiguration" },
+    { loc: [32.68624, 35.393125], label: "Mount of Transfiguration" },
     { loc: [31.77941, 35.23944], label: "Garden of Gethsemane" },
     { loc: [31.761417, 35.558333], label: "Jordan River" },
     { loc: [31.744506, 35.245124], label: "Mount of Olives" }
