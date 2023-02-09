@@ -51,6 +51,13 @@ locations.forEach(function (location) {
     });
     var tooltip = L.tooltip({ direction: 'up' }).setContent(location.label).setLatLng(location.loc);
     marker.bindTooltip(tooltip);
+    marker.on('click', function (e) {
+        // var location = e.target.options.location;
+        document.getElementById('sidebar-right').innerHTML = '<h2>' + location.label + '</h2>' +
+            '<p>Latitude: ' + location.loc[0] + '</p>' +
+            '<p>Longitude: ' + location.loc[1] + '</p>';
+    });
+
     markers.addLayer(marker);
 });
 
