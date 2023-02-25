@@ -11,18 +11,16 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 
 
 
+var locations;
 // Coordinates for important locations in Israel
-var locations = [
-    { loc: [31.7857, 35.2271], label: "Jerusalem" },
-    { loc: [31.7043, 35.2076], label: "Bethlehem" },
-    { loc: [32.70215, 35.297633], label: "Nazareth" },
-    { loc: [32.881139, 35.575056], label: "Capernaum" },
-    { loc: [32.8189, 35.5900], label: "Sea of Galilee" },
-    { loc: [32.68624, 35.393125], label: "Mount of Transfiguration" },
-    { loc: [31.77941, 35.23944], label: "Garden of Gethsemane" },
-    { loc: [31.761417, 35.558333], label: "Jordan River" },
-    { loc: [31.744506, 35.245124], label: "Mount of Olives" }
-];
+fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+        locations = data;
+        // do something with the locations data here
+    })
+    .catch(error => console.error(error));
+
 var latLngValues = locations.map(({ loc }) => loc);
 
 // Create a LatLngBounds object that includes all of the above locations
@@ -53,8 +51,8 @@ locations.forEach(function (location) {
     marker.bindTooltip(tooltip);
     marker.on('click', function (e) {
         // var location = e.target.options.location;
-        document.getElementById('sidebar-right').innerHTML = '<h2>' + location.label + '</h2>' +
-            '<p>Latitude: ' + location.loc[0] + '</p>' +
+        document.getElementById('sidebar-right-header').innerHTML = '<h2>' + location.label + '</h2>';
+        document.getElementById('sidebar-right').innerHTML = '<p>Latitude: ' + location.loc[0] + '</p>' +
             '<p>Longitude: ' + location.loc[1] + '</p>';
     });
 

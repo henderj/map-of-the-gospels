@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width">
   <title>map of the gospels</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin="" />
@@ -28,11 +32,13 @@
   <div class="main">
     <div class="flex-container">
       <div class="flex-item sidebar">
-        <div id="sidebar-left" class="sidebar-content"></div>
+        <div id="sidebar-left" class="sidebar-content">
+        </div>
       </div>
       <div id="map" class="flex-item"></div>
       <div class="flex-item sidebar">
-        <div id="sidebar-right" class="sidebar-content"></div>
+        <div id="sidebar-right-header" class="card"></div>
+        <div id="sidebar-right" class="sidebar-content card"></div>
       </div>
     </div>
   </div>
