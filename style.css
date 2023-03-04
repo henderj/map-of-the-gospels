@@ -45,6 +45,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .flex-container {
@@ -80,6 +81,7 @@ body {
   font-weight: bold;
   border-radius: 5px 5px 0 0;
   text-align: center;
+  min-height: 2vh;
 }
 
 .sidebar {
@@ -90,6 +92,12 @@ body {
 .sidebar-content {
   padding: 10px;
   font-family: 'Roboto', sans-serif;
+  height: 90vh;
+  overflow-y: auto;
+}
+
+.sidebar-content p {
+  margin-top: 5px;
 }
 
 #sidebar-left {}

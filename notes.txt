@@ -12,13 +12,18 @@ points of interest:
 
     to add:
     Cana
+    Bethany
+    Pool of Bethesda
+    Calvary
+    Emmaus
+    Temple in Jerusalem
+    Egypt??
+    
 
 
 more places: https://en.wikipedia.org/wiki/New_Testament_places_associated_with_Jesus
 
 TODO:
-add right sidebar for area info
-add area info
 add left sidebar for list of places
 optimize for mobile
 add more places
