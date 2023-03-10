@@ -24,7 +24,6 @@ points of interest:
 more places: https://en.wikipedia.org/wiki/New_Testament_places_associated_with_Jesus
 
 TODO:
-add left sidebar for list of places
 optimize for mobile
 add more places
 fix tooltip location
