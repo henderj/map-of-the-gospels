@@ -61,7 +61,7 @@ for (let i = 0; i < locations.length; i++) {
     markers.addLayer(marker);
 
     // add location to left sidebar
-    $('#sidebar-left').append('<button class="location-list-item" onclick="markerClickIndex(' + i + ')">' + location.label + '</button>');
+    $('#sidebar-left').append('<li class="location-list-item" onclick="markerClickIndex(' + i + ')"><a href="#">' + location.label + '</a></li>');
 }
 
 map.addLayer(markers);
@@ -73,3 +73,8 @@ L.easyButton('fa-home', function () {
     $('#sidebar-right-header').html('');
 }).addTo(map);
 
+$(document).ready(function () {
+    $("#menu-btn").click(function () {
+        $("#sidebar-left-container").toggleClass("show-sidebar");
+    });
+});
