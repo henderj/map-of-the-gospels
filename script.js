@@ -42,6 +42,10 @@ const markerClick = function (location, zoom = LOC_ZOOM) {
     }
     $('#sidebar-right-header').html('<h2>' + location.label + '</h2>');
     $('#sidebar-right').html(location.description);
+
+    $("#sidebar-right-container").addClass("show-sidebar");
+    $("#sidebar-left-container").removeClass("show-sidebar");
+    $("#close-menu").addClass("active");
 }
 
 const markerClickIndex = function (index) {
@@ -75,6 +79,12 @@ L.easyButton('fa-home', function () {
 
 $(document).ready(function () {
     $("#menu-btn").click(function () {
-        $("#sidebar-left-container").toggleClass("show-sidebar");
+        $("#sidebar-left-container").addClass("show-sidebar");
+        $("#close-menu").addClass("active");
+    });
+    $("#close-menu").click(function () {
+        $("#sidebar-left-container").removeClass("show-sidebar");
+        $("#sidebar-right-container").removeClass("show-sidebar");
+        $("#close-menu").removeClass("active");
     });
 });

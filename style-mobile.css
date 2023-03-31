@@ -3,7 +3,6 @@ body {
   height: 100%;
   width: 100%;
   margin: 0;
-  /* font-family: 'Open Sans', sans-serif; */
   font-family: 'Roboto', sans-serif;
 }
 
@@ -48,6 +47,45 @@ body {
   gap: 10px;
 }
 
+.menu-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2000;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+#close-menu {
+  /* display: none; */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+
+  transition: all 0.3s ease-in-out;
+}
+
+#close-menu.active {
+  /* display: block; */
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
 .card {
   border-radius: 5px;
   padding: 10px;
@@ -70,7 +108,9 @@ body {
 
 .sidebar {
   max-width: 300px;
+  z-index: 3000;
   flex: 1;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .sidebar-content {
@@ -78,6 +118,8 @@ body {
   font-family: 'Roboto', sans-serif;
   height: 90vh;
   overflow-y: auto;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .sidebar-content p {
@@ -111,6 +153,35 @@ body {
 .location-list-item:hover {
   background-color: #f9f9f9;
   cursor: pointer;
+}
+
+
+.sidebar {
+  position: absolute;
+  left: -300px;
+  /* hide sidebar off screen */
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+/* hide menu button on larger screens */
+.menu-btn {
+  display: block;
+}
+
+/* adjust sidebar position and width for smaller screens */
+.sidebar {
+  left: -100%;
+  width: 100%;
+}
+
+/* show sidebar when container has .show-sidebar and media query is active */
+.sidebar.show-sidebar {
+  left: 0;
 }
 
 #sidebar-left {}
