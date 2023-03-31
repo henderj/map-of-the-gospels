@@ -26,6 +26,8 @@ more places: https://en.wikipedia.org/wiki/New_Testament_places_associated_with_
 
 TODO:
 optimize for mobile
+combine mobile and desktop pages
+fix scrolling
 add more places
 fix tooltip location
 add polygons for areas (e.g. Galilee, Judea, Samaria, etc.)??
