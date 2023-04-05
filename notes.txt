@@ -25,10 +25,8 @@ points of interest:
 more places: https://en.wikipedia.org/wiki/New_Testament_places_associated_with_Jesus
 
 TODO:
-optimize for mobile
-combine mobile and desktop pages
-fix scrolling
 add more places
+proof read descriptions
 fix tooltip location
 add polygons for areas (e.g. Galilee, Judea, Samaria, etc.)??
 
